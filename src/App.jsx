@@ -5,28 +5,25 @@ import './App.css'
 const App = () => {
 
   const [sum, setSum] = useState("")
-  const buttons = ["1", "2", "3", "4","5", "6", "7", "8","9", "0","-", "+","*", "/", "="]
+  // const buttons = ["1", "2", "3", "4","5", "6", "7", "8","9", "0","-", "+","*", "/", "C", "="]
+  const buttons = ["C", "B", "()", "+", "7", "8", "9", "-", "4", "5", "6", "X", "1", "2", "3", "/", ".", "0", "%", "="];
 
-  const handleClick = (btn) => {
-    // If user enters =
-    // Pass the sum into the evaluate function
-    // The Evaluate answer becomes sum after setSum is given the above
-    console.log(btn)
-  }
+ 
 
   return (
       <div className="centre">
-        <h2>Sam's Awesome Calculator</h2>
+      <div className="calcBody">
         <h4 className="inputBox">{sum}</h4>
         <div className="buttonWrap">
           {
             buttons.map((button, index) => {
               return (
-                <button key={index} onClick={() => handleClick(button)} className="btn">{button}</button>
+                <button  key={index} onClick={() => handleClick(button)} className="btn">{button}</button>
               )
             })
           }
         </div>
+      </div>
 
       </div>
   )
