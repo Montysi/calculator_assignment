@@ -1,34 +1,34 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { evaluate } from 'mathjs'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  const [sum, setSum] = useState("")
+  const buttons = ["1", "2", "3", "4","5", "6", "7", "8","9", "0","-", "+","*", "/", "="]
+
+  const handleClick = (btn) => {
+    // If user enters =
+    // Pass the sum into the evaluate function
+    // The Evaluate answer becomes sum after setSum is given the above
+    console.log(btn)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="centre">
+        <h2>Sam's Awesome Calculator</h2>
+        <h4 className="inputBox">{sum}</h4>
+        <div className="buttonWrap">
+          {
+            buttons.map((button, index) => {
+              return (
+                <button key={index} onClick={() => handleClick(button)} className="btn">{button}</button>
+              )
+            })
+          }
+        </div>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
   )
 }
 
